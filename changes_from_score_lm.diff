@@ -1,0 +1,27 @@
+20,24d19
+< /*
+<  06/12/2013
+<  This program was priginally written by IRSTLM(score-lm).
+<  Jun-ya Norimatsu modified for query each word.
+< */
+39c34
+<   std::cerr << std::endl << "score-lm - scores words with a language model" << std::endl;
+---
+>   std::cerr << std::endl << "score-lm - scores sentences with a language model" << std::endl;
+88d82
+<   lmt.setlogOOVpenalty(0.0);
+95d88
+< 		line = "<s> " + line + " </s>";
+99d91
+< 		linestr >> ng;
+101,104c93,97
+<     while((linestr >> ng)){
+<     	double logprob = lmt.lprob(ng);
+<     	std::cout << logprob << std::endl;
+< 		}
+---
+>     double logprob = .0;
+>     while((linestr >> ng))
+>       logprob += lmt.lprob(ng);
+> 
+>     std::cout << logprob << std::endl;
